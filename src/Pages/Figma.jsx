@@ -2,8 +2,8 @@ import React from 'react'
 
 function Figma() {
   return (
-    <div>
-      Figma
+    <div className='p-25'>
+      Comming Soon...
     </div>
   )
 }

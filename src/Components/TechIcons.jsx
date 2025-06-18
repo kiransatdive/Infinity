@@ -20,9 +20,11 @@ const TrustedByScroller = () => {
   return (
     <>
     <section className="w-full bg-white dark:bg-black py-2 px-4 sm:px-8 md:px-70">
-      <div className="overflow-hidden">
+       <h1 className="flex items-center justify-center  px-4 sm:px-6 md:px-12 lg:px-20   bg-white text-gray-400 italic">Use Texhnologies!</h1>
+      <div className="overflow-hidden py-8">
+       
         <motion.div
-          className="flex min-w-fit gap-8 sm:gap-10 md:gap-14 px-[10vw] sm:px-[15vw] md:px-[20vw]"
+          className="flex min-w-fit gap-8 sm:gap-10 md:gap-14 px-[10vw] sm:px-[15vw] md:px-[20vw] grayscale-400   "
           animate={{ x: ["0%", "-50%"] }}
           transition={{
             repeat: Infinity,

@@ -18,7 +18,7 @@ const Hero = () => {
   return (
     <>
       <section className="flex items-center justify-center min-h-[60vh] px-4 sm:px-6 md:px-12 lg:px-20 py-16 md:py-20 bg-white dark:bg-neutral-900">
-        <div className="w-full max-w-5xl text-center space-y-8">
+        <div className="w-full max-w-5xl text-center space-y-8 mt-14">
           {/* Title */}
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
@@ -49,7 +49,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
+            className="text-base sm:text-lg md:text-xl lg:text-3xl text-gray-600 dark:text-gray-400 max-w-5xl mx-auto"
           >
             Fast, accessible, and flexible React components for modern web apps.
             <br className="hidden sm:block" />
@@ -63,10 +63,12 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link to="/components" className="w-full sm:w-auto bg-indigo-600 text-white px-6 sm:px-8 py-3 rounded-full text-base sm:text-lg font-medium hover:bg-indigo-700 transition hover:shadow-2xl">
+            <Link to="/components" className="w-full sm:w-auto bg-indigo-600 text-white px-6 sm:px-8 py-5 rounded-2xl text-base sm:text-lg font-medium hover:bg-indigo-700 transition hover:shadow-2xl">
              
               Explore Components
             </Link>
+
+            <button className=" sm:w-auto bg-gray-200  px-6 sm:px-8 py-5 rounded-2xl text-base sm:text-lg font-medium  transition hover:shadow-2xl">Browse Component</button>
           </motion.div>
         </div>
       </section>

@@ -30,8 +30,8 @@ const Navbar = () => {
     <nav className="w-full bg-white dark:bg-neutral-900 py-6 px-6 sticky top-0 z-50 transition-colors duration-300 shadow-sm">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center space-x-2 font-bold text-gray-800 dark:text-white">
-          <img src="/infinity.png" alt="Logo" className="h-7 w-7" />
-          <span>Infinity</span>
+          <img src="/infinity.png" alt="Logo" className="h-8 w-8  border-3 " />
+          <span className="text-2xl font-bold">Infinity</span>
         </Link>
 
         <div className="hidden md:flex space-x-7 text-gray-700 dark:text-gray-300 font-bold">

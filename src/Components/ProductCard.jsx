@@ -1,49 +1,79 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
-import ParallaxButton from "./ParallaxButton";
-import AutoScrollingTestimonials from "./AutoScrollingTestimonials";
+// eslint-disable-next-line no-unused-vars
+import { getRandomColor } from "../utils/colorUtils";
+import AnimatedBubbles from "./AnimatedBubbles";
+import AutoTypingCard from "./AutoTypingCard";
 function ProductCard() {
+  const cardRef = useRef(null);
+  // eslint-disable-next-line no-unused-vars
+  const [style, setStyle] = useState({});
+
+  // eslint-disable-next-line no-unused-vars
+  const handleMouseMove = (e) => {
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * 3;
+    const rotateY = ((x - centerX) / centerX) * -3;
+
+    setStyle({
+      transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`,
+      transition: "transform 0.2s ease-out",
+    });
+  };
+
+  // eslint-disable-next-line no-unused-vars
+  const resetStyle = () => {
+    setStyle({
+      transform: "rotateX(0deg) rotateY(0deg) scale(1)",
+      transition: "transform 0.3s ease-out",
+    });
+  };
+
   return (
     <>
-    <section className="flex items-center justify-center min-h-[60vh] px-4 sm:px-6 md:px-12 lg:px-30 py-16 md:py-20 bg-gray  ">
-      <div className="  border w-full max-w-6xl bg-gray-200 rounded-md p-6 md:p-10 border-gray-300 shadow-2xl transition-all duration-300">
-        <div className="w-full max-w-6xl bg-white rounded-md p-6 md:p-10 transition-all duration-300 items-center justify-center">
-          <h2 className="text-2xl font-bold p-3 text-gray-600 text-center">
-            Explore Features!
+    <section className=" bg-amber-50 py-16 px-6 md:px-20  dark:bg-neutral-900">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-30 ">
+        {/* ✅ LEFT SIDE - TEXT */}
+        <div className="w-full md:w-1/2">
+          <p className="text-indigo-600 font-semibold mb-2">
+            Built for modern teams
+          </p>
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-gray-900 dark:text-white leading-tight">
+            Launch quickly with stunning components
           </h2>
-          <h1 className="text-gray-400 mt-4 font-semibold text-lg px-3 text-center italic">
-            Hover over this box to see the shadow effect.
-          </h1>
+          <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+            Ready-to-use, responsive elements that save time and look great on
+            any device — no design team needed.
+          </p>
+          <button className="py-4 mt-4 px-6 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-300">
+            Try it for free
+          </button>
+        </div>
 
-          <div className="flex flex-col lg:flex-row items-start gap-10 mt-8">
-            {/* First half: code block */}
-            <div className="w-full lg:w-1/2 bg-[#1e1e1e] rounded-xl overflow-hidden shadow-xl">
-              <div className="flex items-center gap-2 p-3 bg-[#2d2d2d] border-b border-gray-700">
-                <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-                <span className="w-3 h-3 bg-yellow-400 rounded-full"></span>
-                <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-              </div>
-              <pre className="text-sm overflow-x-auto p-4 sm:p-6 text-gray-100 font-mono whitespace-pre-line leading-relaxed">
-                {`<motion.button
-                     onClick={handleClick}
-                     style={{ rotateX, rotateY }}
-                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    className="px-12 py-6 text-2xl bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:shadow-xl"
-                 >
-                       💖 Celebrate
-                    </motion.button>`}
-              </pre>
-            </div>
-            {/* Second half: live button */}
-            <ParallaxButton />
+        {/* ✅ RIGHT SIDE - ANIMATED SECTION WITH BUBBLES AND TITLE */}
+        {/* ✅ RIGHT SIDE - ANIMATED SECTION WITH BUBBLES AND TITLE */}
+        <div className="group mt-12  w-full md:w-1/2 relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-xl shadow-xl bg-white dark:bg-black transition-transform duration-300 ease-in-out hover:scale-105">
+          <AnimatedBubbles count={25} />
+          <div className="relative  z-10 flex flex-col items-center justify-center h-full px-4 text-center transition-transform duration-300">
+            <h2 className="transform group-hover:scale-110 transition-transform duration-500 bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-100 dark:to-white text-2xl md:text-3xl lg:text-5xl font-bold tracking-tight">
+              Crafted for Creators.
+            </h2>
           </div>
         </div>
       </div>
     </section>
-    <AutoScrollingTestimonials/>
+    <AutoTypingCard />
     </>
   );
 }
+
+
 
 export default ProductCard;
