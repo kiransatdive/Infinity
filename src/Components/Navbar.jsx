@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navItems = [
-    { label: "Docs", to: "/docs" },
+    { label: "Templates", to: "/docs" },
     { label: "Components", to: "/components" },
     { label: "Figma", to: "/figma" },
     { label: "Blog", to: "/blog" },

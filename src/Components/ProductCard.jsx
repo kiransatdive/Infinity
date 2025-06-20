@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { getRandomColor } from "../utils/colorUtils";
 import AnimatedBubbles from "./AnimatedBubbles";
 import AutoTypingCard from "./AutoTypingCard";
+import { Link } from "react-router-dom";
 function ProductCard() {
   const cardRef = useRef(null);
   // eslint-disable-next-line no-unused-vars
@@ -48,13 +49,13 @@ function ProductCard() {
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4 text-gray-900 dark:text-white leading-tight">
             Launch quickly with stunning components
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-6">
             Ready-to-use, responsive elements that save time and look great on
             any device — no design team needed.
           </p>
-          <button className="py-4 mt-4 px-6 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-300">
+          <Link to="https:github.com/kiransatdive" className="py-4 mt-4 px-6 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition duration-300">
             Try it for free
-          </button>
+          </Link>
         </div>
 
         {/* ✅ RIGHT SIDE - ANIMATED SECTION WITH BUBBLES AND TITLE */}

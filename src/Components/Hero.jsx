@@ -68,7 +68,7 @@ const Hero = () => {
               Explore Components
             </Link>
 
-            <button className=" sm:w-auto bg-gray-200  px-6 sm:px-8 py-5 rounded-2xl text-base sm:text-lg font-medium  transition hover:shadow-2xl">Browse Component</button>
+            <button className=" w-full sm:w-auto bg-gray-200  px-6 sm:px-8 py-5 rounded-2xl text-base sm:text-lg font-medium  transition hover:shadow-2xl">Browse Component</button>
           </motion.div>
         </div>
       </section>

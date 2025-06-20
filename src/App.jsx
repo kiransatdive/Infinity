@@ -1,23 +1,26 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.css";
 import Navbar from "./Components/Navbar";
-import { Link } from "react-router-dom";
 import Hero from "./Components/Hero";
 import Docs from "./Pages/Docs";
 import Components from "./Pages/Components";
-import Blog from "./Pages/Blog";
 import Contact from "./Pages/Contact";
 import SignIn from "./Auth/Signin";
 import Signup from "./Auth/Signup";
 import Figma from "./Pages/Figma";
 
+import Blog from "./Pages/Blog";
+import BlogList from "./Pages/BlogList";
+import Footer from "./Components/Footer";
 const router = createBrowserRouter([
   {
     path: "",
-    element: <div>
-      <Navbar />
-      <Hero />
-    </div>,
+    element: (
+      <div>
+        <Navbar />
+        <Hero />
+
+      </div>
+    ),
   },
   {
     path: "/docs",
@@ -25,52 +28,93 @@ const router = createBrowserRouter([
       <div>
         <Navbar />
         <Docs />
+        
       </div>
     ),
   },
   // Add more routes here
   {
     path: "/components",
-    element: <div>
+    element: (
+      <div>
         <Navbar />
         <Components />
-      </div>,
+        <Footer />
+      </div>
+    ),
   },
+ 
   {
     path: "/blog",
-    element: <div>
-        <Navbar />
-        <Blog />
-      </div>,
+    element: 
+    <div>
+      <Navbar />
+      <BlogList />
+      <Footer />
+    </div>
+    ,
+    errorElement: <h1 className="text-center mt-10 text-red-600 text-2xl">404 - Page Not Found</h1>,
   },
   {
+    path: "/blog/:slug",
+    element:
+    <div>
+      <Navbar />
+      <Blog />
+      <Footer />,
+    </div>
+    
+  },
+
+  {
     path: "/contact",
-    element: <div>
+    element: (
+      <div>
         <Navbar />
         <Contact />
-      </div>,
+        
+      </div>
+    ),
   },
-   {
+  {
     path: "/figma",
-    element: <div>
+    element: (
+      <div>
         <Navbar />
         <Figma />
-      </div>,
+       
+      </div>
+    ),
   },
   {
     path: "/signin",
-    element:<SignIn/> ,
+    element: 
+    <div>
+      <Navbar />
+     <SignIn />
+     <Footer />
+     
+    </div>
+    
   },
-   {
+  {
     path: "/signup",
-    element:<Signup/> ,
-  }
+   
+    element: 
+     <div>
+      <Navbar />
+      <Signup />
+      <Footer />
+    </div>
+    
+  },
 ]);
 
 function App() {
   return (
     <>
       <RouterProvider router={router} />
+      
     </>
   );
 }
